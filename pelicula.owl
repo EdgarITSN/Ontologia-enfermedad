@@ -1,0 +1,237 @@
+Prefix(:=<http://www.semanticweb.org/vvvhu/ontologies/2020/5/pelicula#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/vvvhu/ontologies/2020/5/pelicula>
+
+Declaration(Class(:actores))
+Declaration(Class(:camaras_de_grabacion))
+Declaration(Class(:capital_humano))
+Declaration(Class(:director_de_cine))
+Declaration(Class(:diseño_de_escenario))
+Declaration(Class(:editor_de_video))
+Declaration(Class(:equipo_tecnico))
+Declaration(Class(:estudio_de_grabacion))
+Declaration(Class(:extras))
+Declaration(Class(:guion_grafico))
+Declaration(Class(:guion_literario))
+Declaration(Class(:guionista))
+Declaration(Class(:idea))
+Declaration(Class(:iluminacion))
+Declaration(Class(:maquillista))
+Declaration(Class(:microfono))
+Declaration(Class(:pelicula))
+Declaration(Class(:presupuesto))
+Declaration(Class(:reparto))
+Declaration(Class(:soporte_tecnico))
+Declaration(Class(:vestuario))
+Declaration(ObjectProperty(:escontratadopor))
+Declaration(ObjectProperty(:esdesarrolladopor))
+Declaration(ObjectProperty(:esnecesarioparagrabar))
+Declaration(ObjectProperty(:sonseleccionadospor))
+Declaration(DataProperty(:descripcion))
+Declaration(DataProperty(:edad))
+Declaration(DataProperty(:id))
+Declaration(DataProperty(:nombre))
+Declaration(NamedIndividual(:act1))
+Declaration(NamedIndividual(:act2))
+Declaration(NamedIndividual(:camara1))
+Declaration(NamedIndividual(:director_de_cine))
+############################
+#   Object Properties
+############################
+
+# Object Property: :escontratadopor (:escontratadopor)
+
+ObjectPropertyDomain(:escontratadopor :estudio_de_grabacion)
+ObjectPropertyRange(:escontratadopor :director_de_cine)
+
+# Object Property: :esdesarrolladopor (:esdesarrolladopor)
+
+SubObjectPropertyOf(:esdesarrolladopor owl:topObjectProperty)
+ObjectPropertyDomain(:esdesarrolladopor :idea)
+ObjectPropertyRange(:esdesarrolladopor :director_de_cine)
+ObjectPropertyRange(:esdesarrolladopor :guionista)
+
+# Object Property: :esnecesarioparagrabar (:esnecesarioparagrabar)
+
+ObjectPropertyDomain(:esnecesarioparagrabar :idea)
+ObjectPropertyRange(:esnecesarioparagrabar :presupuesto)
+
+# Object Property: :sonseleccionadospor (:sonseleccionadospor)
+
+SubObjectPropertyOf(:sonseleccionadospor owl:topObjectProperty)
+ObjectPropertyDomain(:sonseleccionadospor :reparto)
+ObjectPropertyRange(:sonseleccionadospor :director_de_cine)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :descripcion (:descripcion)
+
+DataPropertyDomain(:descripcion :camaras_de_grabacion)
+DataPropertyDomain(:descripcion :capital_humano)
+DataPropertyDomain(:descripcion :estudio_de_grabacion)
+DataPropertyDomain(:descripcion :guionista)
+DataPropertyDomain(:descripcion :idea)
+DataPropertyDomain(:descripcion :iluminacion)
+DataPropertyDomain(:descripcion :microfono)
+DataPropertyDomain(:descripcion :reparto)
+DataPropertyRange(:descripcion xsd:string)
+
+# Data Property: :edad (:edad)
+
+DataPropertyDomain(:edad :editor_de_video)
+DataPropertyDomain(:edad :guionista)
+DataPropertyDomain(:edad :maquillista)
+DataPropertyDomain(:edad :reparto)
+DataPropertyDomain(:edad :soporte_tecnico)
+DataPropertyRange(:edad xsd:int)
+
+# Data Property: :id (:id)
+
+DataPropertyDomain(:id :camaras_de_grabacion)
+DataPropertyDomain(:id :iluminacion)
+DataPropertyDomain(:id :microfono)
+DataPropertyDomain(:id :vestuario)
+DataPropertyRange(:id xsd:string)
+
+# Data Property: :nombre (:nombre)
+
+DataPropertyDomain(:nombre :capital_humano)
+DataPropertyDomain(:nombre :director_de_cine)
+DataPropertyDomain(:nombre :equipo_tecnico)
+DataPropertyDomain(:nombre :estudio_de_grabacion)
+DataPropertyDomain(:nombre :guionista)
+DataPropertyDomain(:nombre :reparto)
+DataPropertyDomain(:nombre :vestuario)
+DataPropertyRange(:nombre xsd:string)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :actores (:actores)
+
+SubClassOf(:actores :reparto)
+
+# Class: :camaras_de_grabacion (:camaras_de_grabacion)
+
+SubClassOf(:camaras_de_grabacion :equipo_tecnico)
+
+# Class: :capital_humano (:capital_humano)
+
+SubClassOf(:capital_humano :estudio_de_grabacion)
+
+# Class: :director_de_cine (:director_de_cine)
+
+SubClassOf(:director_de_cine :idea)
+
+# Class: :diseño_de_escenario (:diseño_de_escenario)
+
+SubClassOf(:diseño_de_escenario :director_de_cine)
+
+# Class: :editor_de_video (:editor_de_video)
+
+SubClassOf(:editor_de_video :capital_humano)
+
+# Class: :equipo_tecnico (:equipo_tecnico)
+
+SubClassOf(:equipo_tecnico :estudio_de_grabacion)
+
+# Class: :estudio_de_grabacion (:estudio_de_grabacion)
+
+SubClassOf(:estudio_de_grabacion :director_de_cine)
+
+# Class: :extras (:extras)
+
+SubClassOf(:extras :reparto)
+
+# Class: :guion_grafico (:guion_grafico)
+
+SubClassOf(:guion_grafico :guionista)
+
+# Class: :guion_literario (:guion_literario)
+
+SubClassOf(:guion_literario :guionista)
+
+# Class: :guionista (:guionista)
+
+SubClassOf(:guionista :idea)
+
+# Class: :idea (:idea)
+
+SubClassOf(:idea :presupuesto)
+
+# Class: :iluminacion (:iluminacion)
+
+SubClassOf(:iluminacion :equipo_tecnico)
+
+# Class: :maquillista (:maquillista)
+
+SubClassOf(:maquillista :capital_humano)
+
+# Class: :microfono (:microfono)
+
+SubClassOf(:microfono :equipo_tecnico)
+
+# Class: :presupuesto (:presupuesto)
+
+SubClassOf(:presupuesto :pelicula)
+
+# Class: :reparto (:reparto)
+
+SubClassOf(:reparto :director_de_cine)
+
+# Class: :soporte_tecnico (:soporte_tecnico)
+
+SubClassOf(:soporte_tecnico :capital_humano)
+
+# Class: :vestuario (:vestuario)
+
+SubClassOf(:vestuario :estudio_de_grabacion)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :act1 (:act1)
+
+ClassAssertion(:actores :act1)
+ObjectPropertyAssertion(:sonseleccionadospor :act1 :director_de_cine)
+DataPropertyAssertion(:edad :act1 "21"^^xsd:int)
+DataPropertyAssertion(:nombre :act1 "Raul Lorenzo"^^xsd:string)
+
+# Individual: :act2 (:act2)
+
+ClassAssertion(:actores :act2)
+ObjectPropertyAssertion(:escontratadopor :act2 :director_de_cine)
+DataPropertyAssertion(:edad :act2 "25"^^xsd:string)
+DataPropertyAssertion(:nombre :act2 "Maria jose"^^xsd:string)
+
+# Individual: :camara1 (:camara1)
+
+ClassAssertion(:camaras_de_grabacion :camara1)
+ObjectPropertyAssertion(:esnecesarioparagrabar :camara1 :camara1)
+DataPropertyAssertion(:descripcion :camara1 "camara de grabacion full hd 4k"^^xsd:string)
+DataPropertyAssertion(:id :camara1 "aa1"^^xsd:string)
+DataPropertyAssertion(:id :camara1 "sony"^^xsd:string)
+
+# Individual: :director_de_cine (:director_de_cine)
+
+ClassAssertion(:director_de_cine :director_de_cine)
+ObjectPropertyAssertion(:esdesarrolladopor :director_de_cine :director_de_cine)
+DataPropertyAssertion(:edad :director_de_cine "45"^^xsd:int)
+DataPropertyAssertion(:nombre :director_de_cine "arturo"^^xsd:string)
+
+
+)
